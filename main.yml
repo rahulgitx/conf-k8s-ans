@@ -1,0 +1,24 @@
+- hosts: localhost
+  roles:
+          - role: launching_instances
+            ignore_errors: yes
+    
+
+- hosts: tag_ansible_mn
+  roles:
+          - role: docker
+            ignore_errors: yes
+
+
+
+
+- hosts: tag_k8s_master
+  roles:
+          - role: k8smaster
+            ignore_errors: yes
+
+
+- hosts: tag_k8s_node
+  roles:
+          - role: k8sworker
+            ignore_errors: yes
